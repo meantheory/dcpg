@@ -1,2 +1,3 @@
 # dcpg
-docker compose postgres
+
+docker compose postgres with pgadmin
