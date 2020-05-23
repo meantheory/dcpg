@@ -1,0 +1,22 @@
+version: "3"
+volumes:
+  dbdata:
+services:
+  db:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_USER: dcpg
+      #POSTGRES_DB: 
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+    volumes:
+      - dbdata:/var/lib/postgres
+    ports:
+      - "5432:5432"
+  pgadmin:
+      image: dpage/pgadmin4:latest
+      ports:
+        - "8888:80"
+      environment:
+        - PGADMIN_DEFAULT_EMAIL=admin@example.com
+        - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+
